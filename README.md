@@ -2,13 +2,16 @@
 The repo reproduces an exception on Android in the Release mode.
 Works fine in the Debug mode on Android and on iOS in both modes.
 
+The bug is supposedly caused by the .NET 8-preview6. Works fine on .NET 7
+
 Steps:
 1. Build the project in Release
 2. Deploy to an Android device
 3. Run
 
 **Expected result:** a page appears with the dotnet_bot image as a placeholder which then replaced by an image downloaded from the internet.
-**Actual result: ** the app crashes with the Null Pointer Dereference Exception in logcat:
+
+**Actual result:**  the app crashes with the Null Pointer Dereference Exception in logcat:
 ```
 07-27 17:42:46.245 14676 14702 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x7e77c00000 in tid 14702 (.NET TP Worker), pid 14676 (.ffimageloading)
 07-27 17:42:46.313 14723 14723 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
